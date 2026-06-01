@@ -15,5 +15,11 @@ jobs:
       - name: Build Docker Image
         run: docker build -t quote-api .
 
-      - name: Run Tests
+      - name: Lint
+        run: docker run quote-api npm run lint
+
+      - name: Tests
         run: docker run quote-api npm test
+
+      - name: Coverage
+        run: docker run quote-api npm run coverage
